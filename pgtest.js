@@ -3,7 +3,7 @@ const { Pool, Client } = require('pg')
 const client = new Client({
     user: 'chim',
     host: 'localhost',
-    database: 'chim',
+    database: 'test_knex',
     password: '',
     port: 5432,
 })
@@ -30,7 +30,7 @@ function Actions(task)
 function listData()
 {
     client.connect()
-    client.query('SELECT * FROM public.t03', (err, res) => {
+    client.query('SELECT * FROM public.test_knex', (err, res) => {
       console.log(res.rows)
       client.end()
     })
@@ -40,8 +40,10 @@ function insertData()
 {
     client.connect()
     var d  = new Date();
-    client.query("INSERT INTO public.t02 (c01, c02) VALUES(44,'sss')")
-    client.end()
+    client.query("INSERT INTO public.test_knex (goal_id,name,description,duration_in_days) VALUES(44,'nameI', 'descriptionI',30)", (err, res) => {
+        console.log(err, res)
+        client.end()      
+    })
 }
 
 function clearData()
@@ -56,7 +58,7 @@ function clearData()
       console.log(err, res)
     })
 
-    client.query("DROP TABLE public.t03", (err, res) => {
+    client.query("DROP TABLE public.test_knex", (err, res) => {
       console.log(err, res)
       client.end()
     })

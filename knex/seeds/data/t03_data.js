@@ -1,4 +1,4 @@
-const goal_data = [
+const t03_data = [
     {
       'goal_id':1,
       'name':'Lars Monsen',
@@ -31,4 +31,4 @@ const goal_data = [
     }
 ]
 
-module.exports = { goal_data }
+module.exports = { t03_data }

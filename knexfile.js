@@ -8,7 +8,7 @@ module.exports = {
           host : '127.0.0.1',
           user : 'chim',
           password : '',
-          database : 'chim',
+          database : 'test_knex',
           charset: 'utf8'
         },
         migrations: {
